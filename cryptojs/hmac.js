@@ -10,6 +10,7 @@ module.exports = function (RED) {
 
 		node.on('input', function (msg) {
 			// check configurations
+			node.key = node.key || msg.key
 			if(!node.algorithm || !node.key) {
 				// rising misconfiguration error
 				node.error("Missing configuration, please check your algorithm or key.", msg);
